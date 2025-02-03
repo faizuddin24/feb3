@@ -1,0 +1,62 @@
+
+class Item {
+    String title;
+    String author;
+    int publicationYear;
+
+    public Item(String title, String author, int publicationYear) {
+        this.title = title;
+        this.author = author;
+        this.publicationYear = publicationYear;
+    }
+
+    public void displayDetails() {
+        System.out.println("Title: " + title + ", Author: " + author + ", Publication Year: " + publicationYear);
+    }
+}
+
+
+class Book extends Item {
+    String genre;
+
+    public Book(String title, String author, int publicationYear, String genre) {
+        super(title, author, publicationYear);
+        this.genre = genre;
+    }
+
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Genre: " + genre);
+    }
+}
+
+
+class Magazine extends Item {
+    String issueNumber;
+
+    public Magazine(String title, String author, int publicationYear, String issueNumber) {
+        super(title, author, publicationYear);
+        this.issueNumber = issueNumber;
+    }
+
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Issue Number: " + issueNumber);
+    }
+}
+
+
+public class LibraryTest {
+    public static void main(String[] args) {
+        // Creating objects
+        Book book = new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, "Fiction");
+        Magazine magazine = new Magazine("Time", "Henry Luce", 2025, "3");
+
+        
+        book.displayDetails();
+        System.out.println();  
+        magazine.displayDetails();
+    }
+}
