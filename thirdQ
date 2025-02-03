@@ -1,0 +1,36 @@
+
+abstract class Vehicle {
+    public abstract void startEngine();
+}
+
+class Car extends Vehicle {
+    @Override
+    public void startEngine() {
+        System.out.println("Starting car engine... Vroom Vroom!");
+    }
+}
+
+
+class Motorcycle extends Vehicle {
+    @Override
+    public void startEngine() {
+        System.out.println("Starting motorcycle engine... Vroom Vroom!");
+    }
+}
+
+
+public class VehicleTestDrive {
+    public static void vehicleTestDrive(Vehicle vehicle) {
+        vehicle.startEngine();
+    }
+
+    public static void main(String[] args) {
+       
+        Vehicle car = new Car();
+        Vehicle motorcycle = new Motorcycle();
+
+       
+        vehicleTestDrive(car);        
+        vehicleTestDrive(motorcycle);  
+    }
+}
