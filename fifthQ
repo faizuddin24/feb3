@@ -1,0 +1,46 @@
+abstract class PaymentMethod {
+   
+    abstract void processPayment();
+}
+
+
+class CreditCard extends PaymentMethod {
+    @Override
+    void processPayment() {
+        System.out.println("Processing payment via Credit Card with a processing fee.");
+    }
+}
+
+
+class PayPal extends PaymentMethod {
+    @Override
+    void processPayment() {
+        System.out.println("Processing payment via PayPal without a processing fee.");
+    }
+}
+
+
+class PaymentProcessor {
+   
+    public void processTransaction(PaymentMethod paymentMethod) {
+        paymentMethod.processPayment(); 
+    }
+}
+
+
+public class OnlinePaymentSystem {
+    public static void main(String[] args) {
+        
+        PaymentMethod creditCard = new CreditCard();
+        PaymentMethod paypal = new PayPal();
+        
+       
+        PaymentProcessor processor = new PaymentProcessor();
+        
+       
+        System.out.println("Processing Payment via CreditCard:");
+        processor.processTransaction(creditCard);  
+        System.out.println("Processing Payment via PayPal:");
+        processor.processTransaction(paypal);
+    }
+}
